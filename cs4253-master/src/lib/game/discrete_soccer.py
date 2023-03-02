@@ -113,7 +113,8 @@ class SoccerState(GameState):
     ## PUBLIC METHODS
     ################################################################
 
-    # You may use these methods when implementing the MinimaxAgent.
+    # You may use these methods when implementing the MinimaxAgent
+    # and MonteCarloAgent.
 
     # For information on these methods, see _game.GameState
 
@@ -189,8 +190,8 @@ class SoccerState(GameState):
 
     # These are 'internal' methods and variables to the SoccerState
     # class. You should not use any of these methods in the
-    # MinimaxAgent implementation, but can use them in your soccer
-    # evaluation function.
+    # MinimaxAgent and MonteCarloAgent implementations, but can use
+    # them in your soccer evaluation function.
 
     ## Variables
     # Each of these fields can be directly accessed by calling

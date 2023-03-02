@@ -3,7 +3,7 @@
 from ...lib.game import Agent, RandomAgent
 
 class MinimaxAgent(RandomAgent):
-    """An agent that makes decisions using the Minimax algorithm, using a
+    """An agent that makes decisions using the Minimax algorithm, using an
     evaluation function to approximately guess how good certain states
     are when looking far into the future.
 
@@ -92,3 +92,48 @@ class MinimaxAgent(RandomAgent):
                         if beta <= alpha:
                             break
         return v, move
+
+class MonteCarloAgent(RandomAgent):
+    """An agent that makes decisions using Monte Carlo Tree Search (MCTS),
+    using an evaluation function to approximately guess how good certain
+    states are when looking far into the future.
+
+    :param evaluation_function: The function used to make evaluate a
+        GameState. Should have the parameters (state, player_id) where
+        `state` is the GameState and `player_id` is the ID of the
+        player to calculate the expected payoff for.
+
+    :param max_playouts: The maximum number of playouts to perform
+        using MCTS.
+    """
+    def __init__(self, evaluate_function, max_playouts=100):
+        super().__init__()
+        self.evaluate = evaluate_function
+        self.max_playouts = max_playouts
+
+    def decide(self, state):
+        # TODO: Implement this agent!
+        #
+        # Read the documentation in /src/lib/game/_game.py for
+        # information on what the decide function does.
+        #
+        # Do NOT call the soccer evaluation function that you write
+        # directly from this function! Instead, use
+        # `self.evaluate`. It will behave identically, but will be
+        # able to work for multiple games.
+        #
+        # Do NOT call any SoccerState-specific functions! Assume that
+        # you can only see the functions provided in the GameState
+        # class.
+        #
+        # If you would like to see some example agents, check out
+        # `/src/lib/game/_agents.py`.
+
+        return self.monte_carlo(state, state.current_player)
+
+    def monte_carlo(self, state, player):
+        # This is the suggested method you use to do MCTS.  Assume
+        # `state` is the current state, `player` is the player that
+        # the agent is representing (NOT the current player in
+        # `state`!).
+        return super().decide(state)

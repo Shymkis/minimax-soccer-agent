@@ -1,4 +1,4 @@
-# Project 2: Minimax, Alpha-Beta Game Tree Search and Reinforcement Learning
+# Project 2: Minimax, Alpha-Beta, Monte Carlo Game Tree Search and Reinforcement Learning
 
 In this project, you will complete an agent and an evaluation function
 to play a discretized version of soccer.
@@ -30,10 +30,10 @@ You will be extending the abstract [`Agent`](/src/lib/game/_game.py#L10)
 class specified in the game code. You will need to extend the `decide`
 method so that it returns the correct action given a GameState.
 
-Because we want our `MinimaxAgent` to be used for many kinds of games,
-you can only use the most general information about a game. Each game
-extends the [`GameState`](/src/lib/game/_game.py#L135) class; in
-particular, we are given the following information:
+Because we want our `MinimaxAgent` and `MonteCarloAgent`to be used for
+many kinds of games, you can only use the most general information about
+a game. Each game extends the [`GameState`](/src/lib/game/_game.py#L135)
+class; in particular, we are given the following information:
 
 1. `state.num_players` The number of players in the game
 2. `state.current_player` The numeric ID of the player whose turn it
@@ -67,9 +67,9 @@ concerned about the performance of immutable updates.
 
 ### The evaluation function
 
-While our Minimax agent is domain-independent, the evaluation function
-should be heavily domain-dependent. That is, you should use the
-special methods from
+While our Minimax and Monte Carlo agents are domain-independent, the
+evaluation function should be heavily domain-dependent. That is, you
+should use the special methods from
 the [`SoccerState`](/src/lib/game/discrete_soccer.py#L91) class when
 implementing the evaluation function. In particular, you should pay
 attention to:
